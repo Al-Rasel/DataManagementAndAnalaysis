@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "763037780348",
+    "firebase_url": "https://datamanagementandanalysis.firebaseio.com",
+    "project_id": "datamanagementandanalysis",
+    "storage_bucket": "datamanagementandanalysis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763037780348:android:1a161b4eae593d64",
+        "android_client_info": {
+          "package_name": "com.example.rasel.datamanagementandanalaysis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763037780348-88r6slq0t797ecrn6lf0h8eq487hps10.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rasel.datamanagementandanalaysis",
+            "certificate_hash": "A22E2F2AE620801F034240E30A5EA9CF40C6C7E4"
+          }
+        },
+        {
+          "client_id": "763037780348-k8l0kf8tvporm903m9u45cuqgouh1bah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf1G6l_mZyyaPkC_pVvIue0r7f1AKC1Wg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763037780348-k8l0kf8tvporm903m9u45cuqgouh1bah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
