@@ -3,6 +3,8 @@ package com.example.rasel.datamanagementandanalaysis.modelClass;
 /**
  * Created by Rasel on 9/26/2016.
  */
+
+
 public class SubcategoryModel {
 
     private int CategoryId;

@@ -12,6 +12,7 @@ import com.example.rasel.datamanagementandanalaysis.modelClass.IST_ALL;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class MainActivity extends AppCompatActivity {
     String TAG = "MainActivity";
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference("array/Categories");
+        Query recentPostsQuery = myRef.orderByChild("CategoryId").equalTo(1);
 
 
         mRecycler = (RecyclerView) findViewById(R.id.messages_list);
@@ -54,21 +56,26 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         mAdapter = new FirebaseRecyclerAdapter<CategoryModel, PostViewHolder>(CategoryModel.class, R.layout.category_layout,
-                PostViewHolder.class, myRef) {
+                PostViewHolder.class, recentPostsQuery) {
             @Override
             protected void populateViewHolder(PostViewHolder viewHolder, CategoryModel model, final int position) {
 
+
                 viewHolder.bindToPost(model);
+
+
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                      //  Toast.makeText(v.getContext(), "position = " + position, Toast.LENGTH_SHORT).show();
+
+                        //  Toast.makeText(v.getContext(), "position = " + position, Toast.LENGTH_SHORT).show();
 
 
                         Intent next = new Intent(v.getContext(), Semester.class);
-                        next.putExtra("Position",position);
+                        next.putExtra("Position", position);
 
                         startActivity(next);
+
                     }
                 });
 

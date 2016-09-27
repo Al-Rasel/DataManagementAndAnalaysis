@@ -11,8 +11,8 @@ import com.example.rasel.datamanagementandanalaysis.modelClass.CategoryModel;
  */
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
-    public TextView titleView;
-    public TextView authorView;
+    private TextView titleView;
+    private TextView authorView;
 
 
     public PostViewHolder(View itemView) {
@@ -24,8 +24,14 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindToPost(CategoryModel myDataset) {
+
+
         titleView.setText(String.valueOf(myDataset.getCategoryId()));
         authorView.setText(String.valueOf(myDataset.getCategoryName()));
+
+
+
+
        /* numStarsView.setText(String.valueOf(post.starCount));
         bodyView.setText(post.body);
 
