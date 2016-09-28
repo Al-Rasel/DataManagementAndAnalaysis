@@ -12,7 +12,6 @@ import com.example.rasel.datamanagementandanalaysis.modelClass.IST_ALL;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 public class MainActivity extends AppCompatActivity {
     String TAG = "MainActivity";
@@ -21,15 +20,16 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<CategoryModel, PostViewHolder> mAdapter;
     private IST_ALL ist_all;
     private DatabaseReference myRef;
+    static FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         myRef = database.getReference("array/Categories");
-        Query recentPostsQuery = myRef.orderByChild("CategoryId").equalTo(1);
+        // Query recentPostsQuery = myRef.orderByChild("CategoryId").equalTo(1);
 
 
         mRecycler = (RecyclerView) findViewById(R.id.messages_list);
@@ -56,12 +56,16 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         mAdapter = new FirebaseRecyclerAdapter<CategoryModel, PostViewHolder>(CategoryModel.class, R.layout.category_layout,
-                PostViewHolder.class, recentPostsQuery) {
+                PostViewHolder.class, myRef) {
             @Override
-            protected void populateViewHolder(PostViewHolder viewHolder, CategoryModel model, final int position) {
+            protected void populateViewHolder(PostViewHolder viewHolder, final CategoryModel model, final int position) {
 
 
-                viewHolder.bindToPost(model);
+                // viewHolder.bindToPost(model);
+
+
+
+                viewHolder.authorView.setText(String.valueOf(model.getCategoryName()));
 
 
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         Intent next = new Intent(v.getContext(), Semester.class);
-                        next.putExtra("Position", position);
+                        next.putExtra("CategoryId", model.getCategoryId());
 
                         startActivity(next);
 

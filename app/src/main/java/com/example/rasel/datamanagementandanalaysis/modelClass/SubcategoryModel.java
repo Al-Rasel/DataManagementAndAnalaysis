@@ -11,14 +11,18 @@ public class SubcategoryModel {
     private int SubCategoryId;
     private String SubCategoryName;
 
+    private String SubCategoryNameInEnglish;
+
     public SubcategoryModel() {
     }
 
-    public SubcategoryModel(int categoryId, int subCategoryId, String subCategoryName) {
+    public SubcategoryModel(int categoryId, int subCategoryId, String subCategoryName, String subCategoryNameInEnglish) {
         CategoryId = categoryId;
         SubCategoryId = subCategoryId;
         SubCategoryName = subCategoryName;
+        SubCategoryNameInEnglish = subCategoryNameInEnglish;
     }
+
 
     public int getCategoryId() {
         return CategoryId;
@@ -44,6 +48,14 @@ public class SubcategoryModel {
         SubCategoryName = subCategoryName;
     }
 
+    public String getSubCategoryNameInEnglish() {
+        return SubCategoryNameInEnglish;
+    }
+
+    public void setSubCategoryNameInEnglish(String subCategoryNameInEnglish) {
+        SubCategoryNameInEnglish = subCategoryNameInEnglish;
+    }
+
 
     @Override
     public String toString() {
@@ -51,6 +63,7 @@ public class SubcategoryModel {
                 "CategoryId=" + CategoryId +
                 ", SubCategoryId=" + SubCategoryId +
                 ", SubCategoryName='" + SubCategoryName + '\'' +
+                ", SubCategoryNameInEnglish='" + SubCategoryNameInEnglish + '\'' +
                 '}';
     }
 }

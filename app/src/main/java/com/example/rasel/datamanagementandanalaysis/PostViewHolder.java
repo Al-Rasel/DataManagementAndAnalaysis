@@ -4,15 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.rasel.datamanagementandanalaysis.modelClass.CategoryModel;
-
 /**
  * Created by Rasel on 9/26/2016.
  */
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView titleView;
-    private TextView authorView;
+    public TextView titleView;
+    public TextView authorView;
 
 
     public PostViewHolder(View itemView) {
@@ -23,19 +21,17 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bindToPost(CategoryModel myDataset) {
-
-
-        titleView.setText(String.valueOf(myDataset.getCategoryId()));
-        authorView.setText(String.valueOf(myDataset.getCategoryName()));
+/*    public void bindToPost(CategoryModel myDataset) {
 
 
 
 
-       /* numStarsView.setText(String.valueOf(post.starCount));
+
+
+       *//* numStarsView.setText(String.valueOf(post.starCount));
         bodyView.setText(post.body);
 
-        starView.setOnClickListener(starClickListener);*/
-    }
+        starView.setOnClickListener(starClickListener);*//*
+    }*/
 
 }
