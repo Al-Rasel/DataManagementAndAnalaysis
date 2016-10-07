@@ -11,16 +11,16 @@ public class SubcategoryModel {
     private int SubCategoryId;
     private String SubCategoryName;
 
-    private String SubCategoryNameInEnglish;
+    private String Session;
 
     public SubcategoryModel() {
     }
 
-    public SubcategoryModel(int categoryId, int subCategoryId, String subCategoryName, String subCategoryNameInEnglish) {
+    public SubcategoryModel(int categoryId, int subCategoryId, String subCategoryName, String session) {
         CategoryId = categoryId;
         SubCategoryId = subCategoryId;
         SubCategoryName = subCategoryName;
-        SubCategoryNameInEnglish = subCategoryNameInEnglish;
+        Session = session;
     }
 
 
@@ -48,12 +48,12 @@ public class SubcategoryModel {
         SubCategoryName = subCategoryName;
     }
 
-    public String getSubCategoryNameInEnglish() {
-        return SubCategoryNameInEnglish;
+    public String getSession() {
+        return Session;
     }
 
-    public void setSubCategoryNameInEnglish(String subCategoryNameInEnglish) {
-        SubCategoryNameInEnglish = subCategoryNameInEnglish;
+    public void setSession(String session) {
+        Session = session;
     }
 
 
@@ -63,7 +63,7 @@ public class SubcategoryModel {
                 "CategoryId=" + CategoryId +
                 ", SubCategoryId=" + SubCategoryId +
                 ", SubCategoryName='" + SubCategoryName + '\'' +
-                ", SubCategoryNameInEnglish='" + SubCategoryNameInEnglish + '\'' +
+                ", Session='" + Session + '\'' +
                 '}';
     }
 }

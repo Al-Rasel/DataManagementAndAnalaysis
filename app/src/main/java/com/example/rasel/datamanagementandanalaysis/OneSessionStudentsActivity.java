@@ -11,7 +11,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-public class StudentActivity extends AppCompatActivity {
+public class OneSessionStudentsActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewStudent;
     FirebaseRecyclerAdapter<SubSubcategoryModel, StudentViewHolder> firebaseRecyclerAdapterForStudent;

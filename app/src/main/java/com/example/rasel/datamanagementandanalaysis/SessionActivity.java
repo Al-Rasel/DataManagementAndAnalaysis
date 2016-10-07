@@ -12,7 +12,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-public class Semester extends AppCompatActivity {
+public class SessionActivity extends AppCompatActivity {
 
 
     private RecyclerView recyclerViewForSemesters;
@@ -43,12 +43,12 @@ public class Semester extends AppCompatActivity {
             protected void populateViewHolder(PostViewHolder viewHolder, final SubcategoryModel model, int position) {
 
 
-                viewHolder.authorView.setText(String.valueOf(model.getSubCategoryNameInEnglish()));
+                viewHolder.authorView.setText(String.valueOf(model.getSession()));
 
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), StudentActivity.class);
+                        Intent intent = new Intent(v.getContext(), OneSessionStudentsActivity.class);
 
                         intent.putExtra("subCategoryId", model.getSubCategoryId());
                         startActivity(intent);

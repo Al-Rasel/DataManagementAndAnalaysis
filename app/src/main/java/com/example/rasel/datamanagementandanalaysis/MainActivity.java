@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         //  Toast.makeText(v.getContext(), "position = " + position, Toast.LENGTH_SHORT).show();
 
 
-                        Intent next = new Intent(v.getContext(), Semester.class);
+                        Intent next = new Intent(v.getContext(), SessionActivity.class);
                         next.putExtra("CategoryId", model.getCategoryId());
 
                         startActivity(next);
