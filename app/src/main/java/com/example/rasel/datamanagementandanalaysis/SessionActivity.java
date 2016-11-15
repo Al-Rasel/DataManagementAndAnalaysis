@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.rasel.datamanagementandanalaysis.modelClass.SubcategoryModel;
+import com.example.rasel.datamanagementandanalaysis.viewHolderClass.PostViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;

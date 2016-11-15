@@ -1,9 +1,11 @@
-package com.example.rasel.datamanagementandanalaysis;
+package com.example.rasel.datamanagementandanalaysis.viewHolderClass;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import com.example.rasel.datamanagementandanalaysis.R;
 
 /**
  * Created by Rasel on 9/28/2016.

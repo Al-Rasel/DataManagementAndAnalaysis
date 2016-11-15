@@ -1,8 +1,10 @@
-package com.example.rasel.datamanagementandanalaysis;
+package com.example.rasel.datamanagementandanalaysis.viewHolderClass;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.rasel.datamanagementandanalaysis.R;
 
 /**
  * Created by Rasel on 9/26/2016.

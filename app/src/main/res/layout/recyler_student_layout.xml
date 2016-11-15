@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:layout_margin="4dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
 
-
-        android:layout_height="match_parent">
-
-        <ToggleButton
-            android:id="@+id/toggleButton"
-            android:layout_width="60dp"
-            android:layout_height="45dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerInParent="true"
-            android:layout_marginRight="8dp"
-
-            android:text="ToggleButton"
-            android:textOff="No"
-            android:textOn="Yes" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
 
@@ -36,9 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
-
-
-                android:textSize="14sp" />
+                android:textColor="#5285f9"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/StudentName"
@@ -46,22 +35,39 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
+                android:textColor="#5285f9"
+                android:textSize="17sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp">
+
+                <ToggleButton
+                    android:id="@+id/toggleButton"
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:text="ToggleButton"
+                    android:textOff="No"
+                    android:textOn="Yes" />
 
 
-                android:textSize="15sp" />
+            </RelativeLayout>
 
 
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_studentPresents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_studentPresents"
-            android:layout_marginBottom="8dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
             android:layout_marginLeft="8dp"
-            android:layout_alignParentBottom="true"/>
+            android:text="" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </android.support.v7.widget.CardView>
