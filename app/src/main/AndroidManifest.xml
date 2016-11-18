@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SessionActivity" />
+        <activity android:name=".SemesterActivity"/>
         <activity android:name=".OneSessionStudentsActivity"></activity>
     </application>
 

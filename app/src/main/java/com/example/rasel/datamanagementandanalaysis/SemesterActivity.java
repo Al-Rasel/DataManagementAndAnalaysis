@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.rasel.datamanagementandanalaysis.modelClass.SubcategoryModel;
 import com.example.rasel.datamanagementandanalaysis.viewHolderClass.PostViewHolder;
@@ -13,30 +15,36 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-public class SessionActivity extends AppCompatActivity {
+/**
+ * Created by ASUS on 11/18/2016.
+ */
 
-
-    private RecyclerView recyclerViewForSemesters;
-    private FirebaseRecyclerAdapter<SubcategoryModel, PostViewHolder> mAdapter;
+public class SemesterActivity extends AppCompatActivity {
+    TextView textViewForSubcategoryID;
+    int mSubCategoryID;
+    String TAG = "SemesterActivity";
+    RecyclerView mRecyclerView;
+    FirebaseRecyclerAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sesssion);
-        Bundle extra = getIntent().getExtras();
-        int categoryId = extra.getInt("CategoryId");
+        setContentView(R.layout.activity_semester);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.idRecylerView);
+        Bundle bundle = getIntent().getExtras();
+        mSubCategoryID = bundle.getInt("subCategoryId");
+        Log.e(TAG, "onCreate: ");
+
+        LinearLayoutManager linearLayoutManagerForSemesterActivity = new LinearLayoutManager(this);
+
+        mRecyclerView.setLayoutManager(linearLayoutManagerForSemesterActivity);
 
 
-        recyclerViewForSemesters = (RecyclerView) findViewById(R.id.recycler_semester);
-
-        recyclerViewForSemesters.setLayoutManager(new LinearLayoutManager(this));
-
-
-        //  Toast.makeText(this, String.valueOf(categoryId), Toast.LENGTH_LONG).show();
 
         DatabaseReference databaseReference = MainActivity.database.getReference("array/Subcategories");
 
-        Query recentPostsQuery = databaseReference.orderByChild("CategoryId").equalTo(categoryId);
+        Query recentPostsQuery = databaseReference.orderByChild("CategoryId").equalTo(mSubCategoryID);
 
         mAdapter = new FirebaseRecyclerAdapter<SubcategoryModel, PostViewHolder>(SubcategoryModel.class, R.layout.category_layout,
                 PostViewHolder.class, recentPostsQuery) {
@@ -61,7 +69,11 @@ public class SessionActivity extends AppCompatActivity {
 
             }
         };
-        recyclerViewForSemesters.setAdapter(mAdapter);
+       mRecyclerView.setAdapter(mAdapter);
+
+
+
+        textViewForSubcategoryID.setText(String.valueOf(mSubCategoryID));
 
 
     }

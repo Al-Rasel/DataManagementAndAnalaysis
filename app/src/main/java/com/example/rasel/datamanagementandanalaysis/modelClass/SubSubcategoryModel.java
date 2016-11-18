@@ -1,5 +1,7 @@
 package com.example.rasel.datamanagementandanalaysis.modelClass;
 
+import android.provider.CalendarContract;
+
 /**
  * Created by Rasel on 9/26/2016.
  */
@@ -10,6 +12,8 @@ public class SubSubcategoryModel {
     private int SubCategoryId;
     private int SubSubCategoryId;
     private String SubSubCategoryName;
+
+
 
     public SubSubcategoryModel() {
     }
