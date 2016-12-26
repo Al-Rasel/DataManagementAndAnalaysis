@@ -26,6 +26,8 @@ public class SessionActivity extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         int categoryId = extra.getInt("CategoryId");
 
+       getSupportActionBar().setTitle("Session");
+
 
         recyclerViewForSemesters = (RecyclerView) findViewById(R.id.recycler_semester);
 

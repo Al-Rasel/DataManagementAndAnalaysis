@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.rasel.datamanagementandanalaysis.modelClass.SemesterModel;
 import com.example.rasel.datamanagementandanalaysis.modelClass.SubcategoryModel;
 import com.example.rasel.datamanagementandanalaysis.viewHolderClass.PostViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -20,7 +21,7 @@ import com.google.firebase.database.Query;
  */
 
 public class SemesterActivity extends AppCompatActivity {
-    TextView textViewForSubcategoryID;
+   // TextView textViewForSubcategoryID;
     int mSubCategoryID;
     String TAG = "SemesterActivity";
     RecyclerView mRecyclerView;
@@ -35,6 +36,7 @@ public class SemesterActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         mSubCategoryID = bundle.getInt("subCategoryId");
         Log.e(TAG, "onCreate: ");
+        getSupportActionBar().setTitle("Semester");
 
         LinearLayoutManager linearLayoutManagerForSemesterActivity = new LinearLayoutManager(this);
 
@@ -42,24 +44,25 @@ public class SemesterActivity extends AppCompatActivity {
 
 
 
-        DatabaseReference databaseReference = MainActivity.database.getReference("array/Subcategories");
+        DatabaseReference databaseReference = MainActivity.database.getReference("/array/Semester");
 
-        Query recentPostsQuery = databaseReference.orderByChild("CategoryId").equalTo(mSubCategoryID);
+        Query recentPostsQuery = databaseReference.orderByChild("SubCategoryId").equalTo(mSubCategoryID);
 
-        mAdapter = new FirebaseRecyclerAdapter<SubcategoryModel, PostViewHolder>(SubcategoryModel.class, R.layout.category_layout,
+        mAdapter = new FirebaseRecyclerAdapter<SemesterModel, PostViewHolder>(SemesterModel.class, R.layout.category_layout,
                 PostViewHolder.class, recentPostsQuery) {
             @Override
-            protected void populateViewHolder(PostViewHolder viewHolder, final SubcategoryModel model, int position) {
+            protected void populateViewHolder(PostViewHolder viewHolder, final SemesterModel model, int position) {
 
 
-                viewHolder.authorView.setText(String.valueOf(model.getSession()));
+                viewHolder.titleView.setText(String.valueOf(model.getName()));
 
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), SemesterActivity.class);
+                        Intent intent = new Intent(v.getContext(), SubjectActivity.class);
 
                         intent.putExtra("subCategoryId", model.getSubCategoryId());
+                        intent.putExtra("subID",model.getSubID());
                         startActivity(intent);
 
 
@@ -73,7 +76,7 @@ public class SemesterActivity extends AppCompatActivity {
 
 
 
-        textViewForSubcategoryID.setText(String.valueOf(mSubCategoryID));
+//        textViewForSubcategoryID.setText(String.valueOf(mSubCategoryID));
 
 
     }

@@ -4,6 +4,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="4dp">
 
     <LinearLayout
@@ -18,7 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+            <com.pkmmte.view.CircularImageView
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/elementary_school"
+                android:id="@+id/circulrImage"
 
+                app:border="true"
+                app:border_color="#EEEEEE"
+                app:border_width="2sp"
+                app:shadow="true" />
 
             <TextView
                 android:id="@+id/Student_ID"
@@ -26,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
-                android:textColor="#5285f9"
+                android:textColor="#5f6678"
                 android:textSize="16sp" />
 
             <TextView
@@ -35,22 +46,27 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
-                android:textColor="#5285f9"
+                android:textColor="#888b93"
                 android:textSize="17sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:layout_marginRight="8dp">
 
                 <ToggleButton
                     android:id="@+id/toggleButton"
                     android:layout_width="60dp"
                     android:layout_height="45dp"
-                    android:layout_alignParentRight="true"
+                    android:backgroundTint="#f2b31b80"
+                    android:textColor="#fff"
                     android:text="ToggleButton"
                     android:textOff="No"
-                    android:textOn="Yes" />
+                    android:textOn="Yes"
+                    android:layout_centerInParent="true"
+
+                    android:layout_alignParentEnd="true" />
 
 
             </RelativeLayout>

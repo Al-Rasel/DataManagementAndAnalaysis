@@ -6,6 +6,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.rasel.datamanagementandanalaysis.R;
+import com.pkmmte.view.CircularImageView;
 
 /**
  * Created by Rasel on 9/28/2016.
@@ -17,6 +18,7 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
     public TextView textViewForName;
     public TextView textViewForPresent;
     public ToggleButton toggleButtonForCalling;
+    public CircularImageView circularImageView;
 
     public StudentViewHolder(View itemView) {
         super(itemView);
@@ -24,6 +26,7 @@ public class StudentViewHolder extends RecyclerView.ViewHolder {
         textViewForName = (TextView) itemView.findViewById(R.id.StudentName);
         textViewForPresent = (TextView) itemView.findViewById(R.id.tv_studentPresents);
         toggleButtonForCalling = (ToggleButton) itemView.findViewById(R.id.toggleButton);
+        circularImageView= (CircularImageView) itemView.findViewById(R.id.circulrImage);
 
 
     }

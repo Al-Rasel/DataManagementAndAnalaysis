@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.example.rasel.datamanagementandanalaysis.modelClass.CategoryModel;
@@ -13,6 +14,8 @@ import com.example.rasel.datamanagementandanalaysis.viewHolderClass.PostViewHold
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
     String TAG = "MainActivity";
@@ -27,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Get updated InstanceID token.
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "Refreshed token: " + refreshedToken);
+        FirebaseMessaging.getInstance().subscribeToTopic("ok");
+
+        // TODO: Implement this method to send any registration to your app's servers.
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("array/Categories");

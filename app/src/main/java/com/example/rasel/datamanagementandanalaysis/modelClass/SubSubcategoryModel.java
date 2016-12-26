@@ -13,16 +13,19 @@ public class SubSubcategoryModel {
     private int SubSubCategoryId;
     private String SubSubCategoryName;
 
+    private String SubSubImageLink;
+
 
 
     public SubSubcategoryModel() {
     }
 
-    public SubSubcategoryModel(int subCategoryId, int categoryId, String subSubCategoryName, int subSubCategoryId) {
+    public SubSubcategoryModel(int subCategoryId, int categoryId, String subSubCategoryName, int subSubCategoryId,String subSubImageLink) {
         SubCategoryId = subCategoryId;
         CategoryId = categoryId;
         SubSubCategoryName = subSubCategoryName;
         SubSubCategoryId = subSubCategoryId;
+        SubSubImageLink=subSubImageLink;
     }
 
     public int getCategoryId() {
@@ -57,13 +60,11 @@ public class SubSubcategoryModel {
         SubSubCategoryId = subSubCategoryId;
     }
 
-    @Override
-    public String toString() {
-        return "SubSubcategoryModel{" +
-                "CategoryId=" + CategoryId +
-                ", SubCategoryId=" + SubCategoryId +
-                ", SubSubCategoryId=" + SubSubCategoryId +
-                ", SubSubCategoryName='" + SubSubCategoryName + '\'' +
-                '}';
+    public void setSubSubImageLink(String subSubImageLink) {
+        SubSubImageLink = subSubImageLink;
+    }
+
+    public String getSubSubImageLink() {
+        return SubSubImageLink;
     }
 }

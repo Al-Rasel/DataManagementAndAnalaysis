@@ -6,11 +6,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CompoundButton;
 
+import com.bumptech.glide.Glide;
 import com.example.rasel.datamanagementandanalaysis.modelClass.SubSubcategoryModel;
 import com.example.rasel.datamanagementandanalaysis.viewHolderClass.StudentViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import java.util.Date;
 
 public class OneSessionStudentsActivity extends AppCompatActivity {
 
@@ -23,7 +26,7 @@ public class OneSessionStudentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student);
         Bundle extra = getIntent().getExtras();
         int subCategoryId = extra.getInt("subCategoryId");
-
+        getSupportActionBar().setTitle("Students");
 
         recyclerViewStudent = (RecyclerView) findViewById(R.id.recycler_student);
 
@@ -45,6 +48,8 @@ public class OneSessionStudentsActivity extends AppCompatActivity {
 
                 viewHolder.textViewForName.setText(model.getSubSubCategoryName());
 
+               // Glide.with(viewHolder.itemView.getContext()).load(model.getSubSubImageLink()).into(viewHolder.circularImageView);
+
 
 
 
@@ -52,11 +57,15 @@ public class OneSessionStudentsActivity extends AppCompatActivity {
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (isChecked) {
 
-                            viewHolder.textViewForPresent.setText(String.valueOf(model.getSubSubCategoryId()));
+                            Date d = new Date();
+                            String dateWithoutTime = d.toString().substring(0, 10);
+
+                            viewHolder.textViewForPresent.setText(dateWithoutTime+" - "+"Yes"+";");
 
                         } else {
-
-                            viewHolder.textViewForPresent.setText(String.valueOf("0"));
+                            Date d = new Date();
+                            String dateWithoutTime = d.toString().substring(0, 10);
+                            viewHolder.textViewForPresent.setText(dateWithoutTime+" - "+"No;");
 
                         }
                     }
