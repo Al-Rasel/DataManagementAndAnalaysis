@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.CompoundButton;
 
-import com.bumptech.glide.Glide;
 import com.example.rasel.datamanagementandanalaysis.modelClass.SubSubcategoryModel;
 import com.example.rasel.datamanagementandanalaysis.viewHolderClass.StudentViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -50,7 +49,7 @@ public class OneSessionStudentsActivity extends AppCompatActivity {
 
                // Glide.with(viewHolder.itemView.getContext()).load(model.getSubSubImageLink()).into(viewHolder.circularImageView);
 
-
+                final DatabaseReference databaseReference = MainActivity.database.getReference("array/SubSubcategories/0/Attendance/FirstSemester/SubOne");
 
 
                 viewHolder.toggleButtonForCalling.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -61,6 +60,7 @@ public class OneSessionStudentsActivity extends AppCompatActivity {
                             String dateWithoutTime = d.toString().substring(0, 10);
 
                             viewHolder.textViewForPresent.setText(dateWithoutTime+" - "+"Yes"+";");
+                            databaseReference.setValue("dateWithoutTime+\" - \"+\"Yes\"+\"");
 
                         } else {
                             Date d = new Date();

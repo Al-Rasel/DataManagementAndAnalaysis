@@ -18,7 +18,7 @@
         <activity android:name=".SessionActivity" />
         <activity android:name=".SemesterActivity"/>
         <activity android:name=".SubjectActivity"/>
-        <activity android:name=".OneSessionStudentsActivity"></activity>
+        <activity android:name=".OneSessionStudentsActivity"/>
 
         <!-- [START firebase_service] -->
         <service
